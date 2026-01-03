@@ -12,15 +12,12 @@ async function setSongPreview() {
     chosenAlbum.innerText = 'Album1'
     for (let i = 0; i < 3; i++) {
         const newSong = base.cloneNode(true)
-        console.log(newSong)
         const songImg = newSong.getElementsByTagName('img')[0]
         const trackElapsed = newSong.querySelector('#TrackElapsed')
         const songPlayButton = newSong.getElementsByTagName('button')[0]
         const trackDuration = newSong.querySelector('#TrackDuration')
         const songTitle = newSong.getElementsByTagName('h3')[0]
-
         const audio = new Audio(albumData[keys[i]].File)
-
         audio.addEventListener('loadedmetadata', () => {
             const min = Math.floor(audio.duration / 60)
             const sec = Math.floor(audio.duration % 60)
@@ -39,21 +36,30 @@ async function setSongPreview() {
         songPlayButton.addEventListener('click', () => {
             if (!currentAudio) {
                 audio.play()
-                currentbtn = songPlayButton
                 currentAudio = audio
+                currentbtn = songPlayButton
                 songPlayButton.innerText = 'Pause'
+                return
             }
-            else if (currentAudio !== audio) {
+
+            if (currentAudio !== audio) {
                 currentAudio.pause()
                 currentAudio.currentTime = 0
                 currentbtn.innerText = 'Play'
+
                 audio.play()
                 currentAudio = audio
                 currentbtn = songPlayButton
-                currentbtn.innerText = 'Pause'
+                songPlayButton.innerText = 'Pause'
+                return
+            }
+
+            if (audio.paused) {
+                audio.play()
+                songPlayButton.innerText = 'Pause'
             } else {
-                currentAudio.pause()
-                currentbtn.innerText = 'Play'
+                audio.pause()
+                songPlayButton.innerText = 'Play'
             }
         })
     }
