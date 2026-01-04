@@ -38,13 +38,49 @@ body {
     width: 3rem;
     height: 2rem;
 }
-
-#contactHeader {
-    flex: 1;
+h1 {
     background: linear-gradient(90deg, #ff2fd6, #7b5cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+
+#contactHeader {
+    background: linear-gradient(90deg, #ff2fd6, #7b5cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ContactInfo {
+    flex: 1;
+}
+
+.Divider {
+    background: linear-gradient(90deg, #ff2fd6, #7b5cff);
+    height: 0.1rem;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Info {
+    margin-top: 1rem;
+    display: grid;
+    place-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3rem;
+    height: 40vh;
+    width: 90vw;
+    box-shadow: 0 0 1rem #771263;
+}
+
+.ContactInfo h4 {
+    color: rgb(234, 148, 249);
+    font-size: 5rem;
+}
+
 
 .Album {
     display: flex;
@@ -298,6 +334,8 @@ h3 {
     font-size: 0.8rem;
     color: #777;
 }
+
+
 
 /* Mobile & small screens adjustments */
 @media (max-width: 768px) {
