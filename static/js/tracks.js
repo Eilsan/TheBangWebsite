@@ -31,6 +31,11 @@ async function setSongPreview() {
                 Track.querySelector('.TrackDuration').innerText = `${min}:${sec.toString().padStart(2, '0')}`
             })
             const playButton = Track.getElementsByTagName('button')[0]
+            songAudio.addEventListener('timeupdate', () => {
+                const min = Math.floor(songAudio.currentTime / 60)
+                const sec = Math.floor(songAudio.currentTime % 60)
+                Track.querySelector('.TrackElapsed').innerText = `${min}:${sec.toString().padStart(2, '0')}`
+            })
             playButton.addEventListener('click', () => {
                 if (!currentAudio) {
                     songAudio.play()
