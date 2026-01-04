@@ -21,10 +21,10 @@ async function setSongPreview() {
             console.log(tracks[Object.keys(tracks)[j]])
             const Track = baseTrack.cloneNode(true)
 
-            const songAudio = new Audio(`/../../${tracks[Object.keys(tracks)[j]].File}`)
+            const songAudio = new Audio(tracks[Object.keys(tracks)[j]].File)
 
             Track.getElementsByTagName('h3')[0].innerText = tracks[Object.keys(tracks)[j]].Title
-            Track.getElementsByTagName('img')[0].src = `/../../${tracks[Object.keys(tracks)[j]].Cover}`
+            Track.getElementsByTagName('img')[0].src = tracks[Object.keys(tracks)[j]].Cover
             songAudio.addEventListener('loadedmetadata', () => {
                 const min = Math.floor(songAudio.duration / 60)
                 const sec = Math.floor(songAudio.duration % 60)
