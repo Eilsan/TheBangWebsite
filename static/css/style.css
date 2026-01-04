@@ -343,7 +343,8 @@ h3 {
 
     html,
     body {
-
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
         height: 100svh;
         text-align: center;
         display: flex;
