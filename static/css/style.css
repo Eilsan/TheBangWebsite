@@ -375,9 +375,9 @@ h3 {
         align-items: center;
     }
 
-    #contactInfo2 {
-        color: rgb(255, 0, 0);
-        font-size: 0.5rem;
+    .ContactInfo h4 {
+        color: rgb(237, 148, 249);
+        font-size: 1.4rem;
     }
 
     .mainPage img {
