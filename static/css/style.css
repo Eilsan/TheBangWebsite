@@ -375,7 +375,7 @@ h3 {
         align-items: center;
     }
 
-    .ContactInfo h4 {
+    #contactInfo2 {
         color: rgb(255, 0, 0);
         font-size: 0.5rem;
     }
