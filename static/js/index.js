@@ -65,10 +65,38 @@ async function setSongPreview() {
         })
     }
     base.remove()
-
 }
+
+function handlePersonClick() {
+    const persons = document.getElementsByClassName('personCard');
+
+    Array.from(persons).forEach(person => {
+        person.addEventListener('click', () => {
+            const isExpanded = person.classList.contains('expanded');
+
+            Array.from(persons).forEach(p => {
+                p.classList.remove('expanded');
+                p.style.display = 'flex'; 
+            });
+
+            if (!isExpanded) {
+                person.classList.add('expanded');
+
+                Array.from(persons).forEach(p => {
+                    if (p !== person) {
+                        p.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+}
+
+
+
 async function init() {
     await setSongPreview()
+    handlePersonClick()
 }
 
 document.addEventListener('DOMContentLoaded', init) 

@@ -206,28 +206,66 @@ h3 {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1.5rem;
 }
+
+
 
 .personCard {
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 1rem;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+
+    padding: 1.2rem;
+
     border-radius: 1rem;
     box-shadow: 0 5px 10px rgba(255, 47, 214, 0.35);
-    scale: 1;
-    transition: 0.3s;
+
+    transition:
+        grid-column 0s,
+        grid-row 0s,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    cursor: pointer;
 }
+
+.personCard.expanded {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+
+    z-index: 10;
+    background: linear-gradient(160deg, #111, #0a0a0a);
+
+    box-shadow: 0 20px 40px rgba(255, 47, 214, 0.45);
+}
+
 
 .PersonInfo {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-    align-content: center;
-    height: 3rem;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+
+.personCard {
+    transform-origin: top left;
+}
+
+.personCard.expanded {
+    transform: scale(1.02);
+}
+
+.personCard.expanded p {
+    display: block;
+}
+
+.personCard p {
+    display: none;
+}
+
+
 
 .PersonInfo h5 {
     color: #797979;
